@@ -4,4 +4,4 @@ select id as payment_id,
     status,
     amount / 100 as amount,
     created as created_at
-from dbt-tutorial.jaffle_shop.payments
+from dbt-tutorial.stripe.payments
