@@ -7,6 +7,7 @@ sources:
     tables:
       - name: payment
         loaded_at_field: _batched_at # Le champ qui indique l'heure d'insertion
-        freshness:
-          warn_after: {count: 12, period: hour}  # Alerte après 12h
-          error_after: {count: 24, period: hour} # Erreur après 24h
+        config:
+          freshness:
+            warn_after: {count: 6, period: hour}  # Alerte après 6h
+            error_after: {count: 24, period: hour} # Erreur après 24h
