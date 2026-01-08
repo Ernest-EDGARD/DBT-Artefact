@@ -1,0 +1,26 @@
+WITH local_data AS (
+    SELECT 
+        sub_category,
+        SUM(revenue) AS total_revenue_local
+    FROM {{ ref('stg_local_sales') }}
+    GROUP BY 1
+),
+
+group_data AS (
+    SELECT 
+        sub_category,
+        -- On s'assure que le barcode est cohérent ici aussi si besoin
+        SUM(revenue) AS total_revenue_group
+    FROM {{ source('dbt-carrefour', 'crf_sales_group_data') }}
+    GROUP BY 1
+)
+
+SELECT
+    COALESCE(l.sub_category, g.sub_category) AS sub_category,
+    l.total_revenue_local,
+    g.total_revenue_group,
+    -- Calcul de la différence
+    (l.total_revenue_local - g.total_revenue_group) AS revenue_diff
+FROM local_data l
+FULL OUTER JOIN group_data g 
+    ON l.sub_category = g.sub_category
