@@ -7,7 +7,7 @@ SELECT
     pdt_SUB_CATEGORY,
     DATE,
     -- On ajoute souvent le prix ou le revenu ici pour la suite de ton exercice
-    revenue, 
+    CA, 
     site_key
 FROM {{ source('dbt_carrefour', table_name) }} -- Ici, on utilise la variable table_name
 
