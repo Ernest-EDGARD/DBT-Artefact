@@ -1,0 +1,9 @@
+sources:
+  - name: dbt-carrefour
+  
+    tables:
+      - name: crf_hyp_sales_fr_data
+      - name: sitecrf_prx_sales_fr_data
+      - name : crf_sales_group_data
+      - name : crf_sup_sales_fr_data
+      - name : ferrero_sales_per_week_dirty
