@@ -1,4 +1,4 @@
-{% macro get_stg_local_sales(table_name) %}
+{% macro carrefour_sales_macro(table_name) %}
 
 SELECT
     -- On force le type string pour le code-barres pour la cohérence
