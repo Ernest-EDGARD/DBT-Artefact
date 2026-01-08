@@ -4,15 +4,15 @@ models:
   - name: stg_carrefour_sales  # Nom exact de votre fichier SQL dans staging
     description: "Modèle consolidant les ventes locales (Hyp, Sup, Prox) via une macro."
     columns:
-      - name: codebar
+      - name: barcode_ean13
         description: "Code-barres du produit (EAN13) casté en String."
         tests:
           - not_null  # Vérifie qu'il n'y a pas de valeurs vides
 
-  - name: aggregation
+  - name: carrefour_aggregation
     description: "Comparaison du chiffre d'affaires entre le local France et le Groupe par sous-catégorie."
     columns:
-      - name: sub_category
+      - name: pdt_SUB_CATEGORY
         description: "Sous-catégorie de produit (ex: Boissons)."
         tests:
           - not_null
