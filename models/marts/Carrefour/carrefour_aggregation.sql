@@ -23,4 +23,4 @@ SELECT
     (l.total_revenue_local - g.total_revenue_group) AS revenue_diff
 FROM local_data l
 FULL OUTER JOIN group_data g 
-    ON l.sub_category = g.sub_category
+    ON l.pdt_SUB_CATEGORY = g.pdt_SUB_CATEGORY
