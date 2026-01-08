@@ -1,6 +1,6 @@
 WITH local_data AS (
     SELECT 
-        sub_category,
+        pdt_SUB_CATEGORY,
         SUM(CA) AS total_revenue_local
     FROM {{ ref('stg_carrefour_sales') }}
     GROUP BY 1
@@ -16,7 +16,7 @@ group_data AS (
 )
 
 SELECT
-    COALESCE(l.sub_category, g.sub_category) AS sub_category,
+    COALESCE(l.pdt_SUB_CATEGORY, g.pdt_SUB_CATEGORY) AS pdt_SUB_CATEGORY,
     l.total_revenue_local,
     g.total_revenue_group,
     -- Calcul de la différence
