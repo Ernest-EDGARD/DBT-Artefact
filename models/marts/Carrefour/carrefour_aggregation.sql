@@ -2,7 +2,7 @@ WITH local_data AS (
     SELECT 
         sub_category,
         SUM(revenue) AS total_revenue_local
-    FROM {{ ref('stg_local_sales') }}
+    FROM {{ ref('stg_carrefour_sales') }}
     GROUP BY 1
 ),
 
