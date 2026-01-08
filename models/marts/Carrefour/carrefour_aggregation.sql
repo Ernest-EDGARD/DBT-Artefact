@@ -1,16 +1,16 @@
 WITH local_data AS (
     SELECT 
         sub_category,
-        SUM(revenue) AS total_revenue_local
+        SUM(CA) AS total_revenue_local
     FROM {{ ref('stg_carrefour_sales') }}
     GROUP BY 1
 ),
 
 group_data AS (
     SELECT 
-        sub_category,
+        pdt_SUB_CATEGORY,
         -- On s'assure que le barcode est cohérent ici aussi si besoin
-        SUM(revenue) AS total_revenue_group
+        SUM(CA) AS total_revenue_group
     FROM {{ source('dbt-carrefour', 'crf_sales_group_data') }}
     GROUP BY 1
 )
