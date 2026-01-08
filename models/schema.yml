@@ -4,7 +4,7 @@ models:
   - name: stg_carrefour_sales  # Nom exact de votre fichier SQL dans staging
     description: "Modèle consolidant les ventes locales (Hyp, Sup, Prox) via une macro."
     columns:
-      - name: barcode_ean13
+      - name: barcode
         description: "Code-barres du produit (EAN13) casté en String."
         tests:
           - not_null  # Vérifie qu'il n'y a pas de valeurs vides
