@@ -11,7 +11,7 @@ group_data AS (
         pdt_SUB_CATEGORY,
         -- On s'assure que le barcode est cohérent ici aussi si besoin
         SUM(CA) AS total_revenue_group
-    FROM {{ source('dbt-carrefour', 'crf_sales_group_data') }}
+    FROM {{ source('dbt_carrefour', 'crf_sales_group_data') }}
     GROUP BY 1
 )
 
