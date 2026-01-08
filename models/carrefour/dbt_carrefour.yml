@@ -1,5 +1,5 @@
 sources:
-  - name: dbt-carrefour
+  - name: dbt_carrefour
 
     tables:
       - name: crf_hyp_sales_fr_data
