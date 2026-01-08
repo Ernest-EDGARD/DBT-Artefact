@@ -9,6 +9,6 @@ SELECT
     -- On ajoute souvent le prix ou le revenu ici pour la suite de ton exercice
     revenue, 
     site_key
-FROM {{ source('dbt-carrefour', table_name) }} -- Ici, on utilise la variable table_name
+FROM {{ source('dbt_carrefour', table_name) }} -- Ici, on utilise la variable table_name
 
 {% endmacro %}
